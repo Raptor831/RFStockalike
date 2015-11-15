@@ -10,13 +10,10 @@ This does require Real Fuels to be installed as well as ModuleManager 2.x. If yo
 Installation
 ------------
 
-Install the configs to the <KSP root>/GameData/RealFuels/ folder, and install the ModuleRCSFX folder to <KSP root>/GameData/.
+Install the RealFuels-Stockalike folder to the <KSP root>/GameData/ folder, and install the RealPlume-RFStockalike folder to <KSP root>/GameData/RealPlume.
 
-If you wish to not have the RCS changed (and still use MonoPropellant), do not install the ModuleRCSFX folder and remove the StockAlike_RCS_RF.cfg and Mono_to_Hydrazine.cfg.
 
 License
 -------
 
 Stockalike configs are released under CC BY-SA 4.0. Details in License.txt.
-
-ModuleRCSFX is courtesy NathanKell. License information for that can be found in its readme file.
