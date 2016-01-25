@@ -1,5 +1,4 @@
-//The Martian Hermes mod
-@PART[MDVcapsule]:FOR[RealFuels_StockEngines]:NEEDS[!RealismOverhaul] //MDV
+@PART[MDVcapsule]:FOR[RealFUels_StockEngines]
 {
 	@mass = 4.0
 	@description = This little pod could take you down to the red planet, but could also serve as a cheap command pod with integrated engines, as long as you don't use it to stay in space for years.
@@ -7,12 +6,12 @@
 	!RESOURCE[Oxidizer]{}
 	!RESOURCE[MonoPropellant]{}
 	
-	MODULE
+	%MODULE[ModularFuelTanks]
 	{
-		name = ModularFuelTanks
-		volume = 5000
-		baseMass = -1
-		type = ServiceModule
+		@name = ModularFuelTanks
+		%volume = 5000
+		%baseMass = -1
+		%type = ServiceModule
 		TANK
 		{
 			name = Hydrazine
@@ -25,7 +24,7 @@
 	@MODULE[ModuleEngine*]
 	{
 		@name = ModuleEnginesRF
-		@maxThrust = 120
+		@maxThrust = 200
 		@heatProduction = 5
 		@atmosphereCurve
 		{
@@ -64,7 +63,7 @@
     CONFIG
     {
       name = Hydrazine+NTO
-      maxThrust = 120
+      maxThrust = 200
       heatProduction = 95
       PROPELLANT
       {
@@ -100,8 +99,8 @@
 	CONFIG
 	{
 		name = LqdMethane+LqdOxygen
-      maxThrust = 110
-      heatProduction = 183
+      maxThrust = 180
+      heatProduction = 83
       PROPELLANT
       {
         name = LqdMethane
@@ -120,14 +119,14 @@
       throttle = 0
       ModuleEngineIgnitor
       {
-        ignitionsAvailable = 0
+        ignitionsAvailable = 24
         autoIgnitionTemperature = 800
         ignitorType = Electric
         useUllageSimulation = true
         IGNITOR_RESOURCE
         {
           name = ElectricCharge
-          amount = 4.25
+          amount = 2.1
         }
       }
     }
@@ -135,7 +134,7 @@
   !MODULE[ModuleEngineIgnitor] {}
   ModuleEngineIgnitor
   {
-    ignitionsAvailable = 24
+    ignitionsAvailable = 0
     autoIgnitionTemperature = 800
     ignitorType = Electric
     useUllageSimulation = false
