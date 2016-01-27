@@ -6,17 +6,17 @@
 	!RESOURCE[Oxidizer]{}
 	!RESOURCE[MonoPropellant]{}
 	
-	%MODULE[ModularFuelTanks]
+	%MODULE[ModuleFuelTanks]
 	{
-		@name = ModularFuelTanks
+		%name = ModuleFuelTanks
 		%volume = 5000
 		%baseMass = -1
 		%type = ServiceModule
-		TANK
+		%TANK[Hydrazine]
 		{
-			name = Hydrazine
-			amount = full
-			maxAmount = 300
+			%name = Hydrazine
+			%amount = full
+			%maxAmount = 1200
 		}
 	}
 	
@@ -24,7 +24,7 @@
 	@MODULE[ModuleEngine*]
 	{
 		@name = ModuleEnginesRF
-		@maxThrust = 200
+		@maxThrust = 300
 		@heatProduction = 5
 		@atmosphereCurve
 		{
@@ -63,7 +63,7 @@
     CONFIG
     {
       name = Hydrazine+NTO
-      maxThrust = 200
+      maxThrust = 300
       heatProduction = 95
       PROPELLANT
       {
@@ -99,7 +99,7 @@
 	CONFIG
 	{
 		name = LqdMethane+LqdOxygen
-      maxThrust = 180
+      maxThrust = 270
       heatProduction = 83
       PROPELLANT
       {
