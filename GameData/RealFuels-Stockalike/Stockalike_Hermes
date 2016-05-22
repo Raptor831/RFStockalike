@@ -1,0 +1,147 @@
+@PART[MDVcapsule]:FOR[RealFUels_StockEngines]
+{
+	@mass = 4.0
+	@description = This little pod could take you down to the red planet, but could also serve as a cheap command pod with integrated engines, as long as you don't use it to stay in space for years.
+	!RESOURCE[LiquidFuel]{}
+	!RESOURCE[Oxidizer]{}
+	!RESOURCE[MonoPropellant]{}
+	
+	%MODULE[ModuleFuelTanks]
+	{
+		%name = ModuleFuelTanks
+		%volume = 5000
+		%baseMass = -1
+		%type = ServiceModule
+		%TANK[Hydrazine]
+		{
+			%name = Hydrazine
+			%amount = full
+			%maxAmount = 1200
+		}
+	}
+	
+	
+	@MODULE[ModuleEngine*]
+	{
+		@name = ModuleEnginesRF
+		@maxThrust = 300
+		@heatProduction = 5
+		@atmosphereCurve
+		{
+			@key,0 = 0 339
+			@key,1 = 1 292
+		}    //Data from http://www.astronautix.com/props/n2oazine.htm
+		!PROPELLANT[LiquidFuel] {}
+		!PROPELLANT[Oxidizer] {}
+		!PROPELLANT[MonoPropellant] {}
+		PROPELLANT
+		{
+			name = Hydrazine
+			ratio = 48.125
+			DrawGauge = True
+			%ResourceFlowMode = STACK_PRIORITY_SEARCH
+		}
+		PROPELLANT
+		{
+			name = NTO
+			ratio = 51.875
+			%ResourceFlowMode = STACK_PRIORITY_SEARCH
+		}
+	}
+
+  MODULE
+  {
+    name = ModuleEngineConfigs
+    type = ModuleEnginesRF
+    techLevel = 6
+    origTechLevel = 6
+    engineType = L+
+    origMass = 4
+    configuration = Hydrazine+NTO
+    modded = false
+
+    CONFIG
+    {
+      name = Hydrazine+NTO
+      maxThrust = 300
+      heatProduction = 95
+      PROPELLANT
+      {
+        name = Hydrazine
+        ratio = 48.125000
+        DrawGauge = True
+        %ResourceFlowMode = STACK_PRIORITY_SEARCH
+      }
+      PROPELLANT
+      {
+        name = NTO
+        ratio = 51.875000
+        %ResourceFlowMode = STACK_PRIORITY_SEARCH
+      }
+      IspSL = 1.0000
+      IspV = 1.0000
+      throttle = 0
+      ModuleEngineIgnitor
+      {
+        ignitionsAvailable = 0
+        autoIgnitionTemperature = 800
+        ignitorType = Electric
+        useUllageSimulation = false
+        IGNITOR_RESOURCE
+        {
+          name = ElectricCharge
+          amount = 0.04
+        }
+      }
+
+
+    }
+	CONFIG
+	{
+		name = LqdMethane+LqdOxygen
+      maxThrust = 270
+      heatProduction = 83
+      PROPELLANT
+      {
+        name = LqdMethane
+        ratio = 43.54679276535492
+        DrawGauge = True
+        %ResourceFlowMode = STACK_PRIORITY_SEARCH
+      }
+      PROPELLANT
+      {
+        name = LqdOxygen
+        ratio = 56.45320723464508
+        %ResourceFlowMode = STACK_PRIORITY_SEARCH
+      }
+      IspSL = 1.1021
+      IspV = 1.1021
+      throttle = 0
+      ModuleEngineIgnitor
+      {
+        ignitionsAvailable = 24
+        autoIgnitionTemperature = 800
+        ignitorType = Electric
+        useUllageSimulation = true
+        IGNITOR_RESOURCE
+        {
+          name = ElectricCharge
+          amount = 2.1
+        }
+      }
+    }
+  }
+  !MODULE[ModuleEngineIgnitor] {}
+  ModuleEngineIgnitor
+  {
+    ignitionsAvailable = 0
+    autoIgnitionTemperature = 800
+    ignitorType = Electric
+    useUllageSimulation = false
+    IGNITOR_RESOURCE
+    {
+      name = ElectricCharge
+      amount = 0.04
+    }
+  }
+}
