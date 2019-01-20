@@ -11,7 +11,7 @@ branches:
   only:
   - /^v\d+(\.\d+)+$/
 before_deploy:
-- cd ..
+- cd ${REPO}
 - pwd
 - ls
 - zip ${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.zip ${REPO}
