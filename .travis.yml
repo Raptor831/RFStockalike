@@ -1,12 +1,10 @@
-language: node_js
-node_js:
-- stable
-- '6'
-- '4'
+dist: trusty
+language: php
+php: 7.1
 
 env:
- global:
- - REPO=RFStockalike
+  global:
+  - REPO=RFStockalike
 branches:
   # expected format: v1.0.0
   only:
