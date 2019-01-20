@@ -3,6 +3,10 @@ node_js:
 - stable
 - '6'
 - '4'
+
+env:
+ global:
+ - REPO=RFStockalike
 branches:
   # expected format: v1.0.0
   only:
